@@ -1,34 +1,31 @@
-var cars = $("#test");
+
+var add = $("#add");
+var cars = $(".cars");
+var chosen = $(".chosen");
+var deleteBtn = $("#delete")
 
 
-
-$(document).ready(function(){
-    $("#add").click(function(){
-        $(".cars").find("option:selected").hide();
-       var selectedcar = $(".cars").find("option:selected").val();
-        $('.chosen').append($('<option>', {
+function addDelete (button, from, to){
+    button.click(function(){
+       from.find("option:selected").hide();
+        var selectedcar = from.find("option:selected").val();
+        to.append($('<option>', {
             value: selectedcar,
             text: selectedcar
         }));
 
 
     });
-});
+}
+
+addDelete(add, cars,chosen);
+addDelete(deleteBtn, chosen,cars);
 
 
 
-$(document).ready(function(){
-    $("#delete").click(function(){
-        $(".chosen").find("option:selected").hide();
-        var selectedcar = $(".chosen").find("option:selected").val();
-        $('.cars').append($('<option>', {
-            value: selectedcar,
-            text: selectedcar
-        }));
 
 
-    });
-});
+
 
 
 
